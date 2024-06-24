@@ -4,11 +4,5 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { netlifyPlugin } from "@netlify/remix-adapter/plugin";
 
 export default defineConfig({
-  plugins: [
-    remix({
-      ignoredRouteFiles: ["**/*.css"],
-    }),
-    netlifyPlugin(),
-    tsconfigPaths(),
-  ],
+  plugins: [remix(), netlifyPlugin(), tsconfigPaths()],
 });
