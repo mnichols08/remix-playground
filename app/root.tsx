@@ -15,17 +15,6 @@ import appStylesHref from "./app.css?url";
 
 import { getContacts } from "./data";
 
-interface LoaderData {
-  contacts: Contact[];
-}
-
-interface Contact {
-  id: string;
-  first?: string;
-  last?: string;
-  favorite?: boolean;
-}
-
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: appStylesHref }];
 };
@@ -36,7 +25,7 @@ export const loader = async () => {
 };
 
 export default function App() {
-  const { contacts } = useLoaderData() as LoaderData;
+  const { contacts } = useLoaderData<typeof loader>();
   return (
     <html lang="en">
       <head>
